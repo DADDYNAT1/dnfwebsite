@@ -110,7 +110,8 @@ const episodes = {
       { title: "Ep. 6: THE LAST OF US... ON BITCOIN 🧙‍♂️🧟🙀", id: "1090722958" },
       { title: "Ep. 7: THE LAST OF US... ON BITCOIN Pt. 2 🧙‍♂️🧟🙀", id: "1090722958" },
       { title: "Ep. 8: THE LAST OF US... ON BITCOIN Pt. 3 - FINALE 🧙‍♂️🧟🙀", id: "1090723068" },
-      { title: "Ep. 9: ORDI WAR 3: PUPPETS, WEIRDOS, AND PSYOPS ✊🤬🕵️‍♀️", id: "1090723167" }
+      { title: "Ep. 9: ORDI WAR 3: PUPPETS, WEIRDOS, AND PSYOPS ✊🤬🕵️‍♀️", id: "1090723167" },
+      { title: "Ep. 10: ORDI WAR 3: GOLDEND D'S & CLOSETED C'S ✊🤬🕵️‍♀️", id: "1091042357" }
     ]
   };
   
