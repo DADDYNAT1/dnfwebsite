@@ -1,0 +1,130 @@
+/* General Page Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('assets/background-html.png') center top repeat-y;
+  background-size: contain;
+  background-attachment: scroll;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 300vh;
+}
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header img {
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+}
+
+/* Controls Wrapper */
+.controls {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Dropdown container alignment */
+.select-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Dropdown Labels */
+.controls label {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 6px;
+}
+
+/* Dropdowns */
+.controls select {
+  padding: 10px 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  appearance: none;
+  min-width: 180px;
+}
+
+/* Episode Title */
+#episodeTitle {
+  font-size: 1.8rem;
+  margin: 25px auto 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Video Player */
+.video-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Button Styling */
+button {
+  background-color: #ffcc00;
+  color: #222;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background-color: #ff9900;
+  transform: translateY(-1px);
+}
+
+/* Footer (Optional CTA or Credits) */
+footer {
+  margin: 40px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  color: #eee;
+}
+
+/* Optional: Add spacing under random button */
+#randomButton {
+  margin-bottom: 20px;
+}

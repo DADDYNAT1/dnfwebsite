@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doland & FrienDz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header with Logo -->
+  <header>
+    <img src="assets/logo-doland-friendz.png" alt="logo Doland & FrienDz" />
+  </header>
+
+  <!-- Episode Controls + Title + Video -->
+  <div class="controls">
+    <div class="select-row">
+      <label for="seasonSelect">Season:</label>
+      <select id="seasonSelect"></select>
+
+      <label for="episodeSelect">Episode:</label>
+      <select id="episodeSelect"></select>
+    </div>
+
+    <h2 id="episodeTitle">Select an episode</h2>
+
+    <div class="video-container">
+      <iframe
+        id="videoFrame"
+        width="100%"
+        height="480"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <button id="nextButton">▶️ Watch Next Episode</button>
+    <button id="randomButton">🎲 Random Episode</button>
+  </div>
+
+  <!-- Footer (optional) -->
+  <footer>
+    <p style="text-align:center; margin: 30px 0; font-size: 0.9rem;">
+      🧠 Built with ❤️ for the FrienDz 🧠
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
