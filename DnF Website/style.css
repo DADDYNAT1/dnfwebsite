@@ -6,13 +6,11 @@ body {
   background: url('assets/background-html.png') center top repeat-y;
   background-size: cover;
   background-attachment: scroll;
-  background-repeat: repeat;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 300vh;
-  overflow-x: hidden;
 }
 
 /* Header */
@@ -49,14 +47,14 @@ header h1 {
 /* Dropdown container alignment */
 .select-row {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 15px;
   background: rgba(0, 0, 0, 0.4);
   padding: 12px 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  justify-content: center;
 }
 
 /* Dropdown Labels */
@@ -77,7 +75,6 @@ header h1 {
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
   appearance: none;
   min-width: 180px;
-  max-width: 100vw;
 }
 
 /* Episode Title */
@@ -92,8 +89,8 @@ header h1 {
 
 /* Video Player */
 .video-container {
-  width: 95%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 900px;
   margin: 20px auto;
   border-radius: 15px;
   overflow: hidden;
@@ -113,7 +110,6 @@ button {
   transition: all 0.3s ease;
   margin-top: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  max-width: 90vw;
 }
 
 button:hover {
@@ -135,45 +131,40 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Responsive Styling for Mobile */
+/* ======= MOBILE OPTIMIZATION ======= */
 @media (max-width: 768px) {
-  header img {
-    height: 60px;
+  body {
+    background-size: cover;
+    padding: 10px;
   }
 
   .select-row {
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
     padding: 16px;
-    gap: 12px;
   }
 
   .controls select {
-    width: 90vw;
-    font-size: 1rem;
+    min-width: 100%;
+    font-size: 0.95rem;
   }
 
   #episodeTitle {
     font-size: 1.4rem;
-    margin: 15px auto 10px;
     padding: 0 10px;
   }
 
   .video-container iframe {
-    width: 100%;
-    height: 220px;
+    height: 240px;
   }
 
   button {
-    width: 90vw;
+    width: 90%;
     max-width: 300px;
     font-size: 1rem;
-    padding: 10px 20px;
   }
 
-  footer {
-    padding: 0 15px;
-    font-size: 0.85rem;
-    text-align: center;
+  header img {
+    height: 60px;
   }
 }
