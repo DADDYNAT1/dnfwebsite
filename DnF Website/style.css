@@ -1,10 +1,11 @@
+
 /* General Page Styling */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
   background: url('assets/background-html.png') center top repeat-y;
-  background-size: contain;
+  background-size: cover;
   background-attachment: scroll;
   color: #fff;
   display: flex;
@@ -47,6 +48,8 @@ header h1 {
 /* Dropdown container alignment */
 .select-row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 15px;
   background: rgba(0, 0, 0, 0.4);
@@ -87,7 +90,7 @@ header h1 {
 
 /* Video Player */
 .video-container {
-  width: 90%;
+  width: 100%;
   max-width: 900px;
   margin: 20px auto;
   border-radius: 15px;
@@ -129,27 +132,26 @@ footer {
   margin-bottom: 20px;
 }
 
-/* Responsive Styling for Mobile */
+/* ======= MOBILE OPTIMIZATION ======= */
 @media (max-width: 768px) {
-  header img {
-    height: 60px;
+  body {
+    background-size: cover;
+    padding: 10px;
   }
 
   .select-row {
     flex-direction: column;
-    align-items: stretch;
+    gap: 10px;
     padding: 16px;
-    gap: 12px;
   }
 
   .controls select {
     min-width: 100%;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   #episodeTitle {
     font-size: 1.4rem;
-    margin: 15px auto 10px;
     padding: 0 10px;
   }
 
@@ -161,12 +163,10 @@ footer {
     width: 90%;
     max-width: 300px;
     font-size: 1rem;
-    padding: 10px 20px;
   }
 
-  footer {
-    padding: 0 15px;
-    font-size: 0.85rem;
-    text-align: center;
+  header img {
+    height: 60px;
   }
 }
+ 
