@@ -116,73 +116,76 @@ const episodes = {
   };
   
   const seasonSelect = document.getElementById("seasonSelect");
-  const episodeSelect = document.getElementById("episodeSelect");
-  const videoFrame = document.getElementById("videoFrame");
-  const nextButton = document.getElementById("nextButton");
-  const randomButton = document.getElementById("randomButton");
-  const titleEl = document.getElementById("episodeTitle");
-  
-  let currentSeason = "Season1";
-  let currentEpisodeIndex = 0;
-  
-  // Populate seasons
-  Object.keys(episodes).forEach((season) => {
+const episodeSelect = document.getElementById("episodeSelect");
+const videoFrame = document.getElementById("videoFrame");
+const nextButton = document.getElementById("nextButton");
+const randomButton = document.getElementById("randomButton");
+const titleEl = document.getElementById("episodeTitle");
+
+// Set default to latest episode (Season 2, Ep 10)
+let currentSeason = "Season2";
+let currentEpisodeIndex = 9;
+
+// Populate seasons
+Object.keys(episodes).forEach((season) => {
+  const opt = document.createElement("option");
+  opt.value = season;
+  opt.text = season;
+  seasonSelect.appendChild(opt);
+});
+seasonSelect.value = currentSeason;
+
+// Load episodes for a selected season
+function loadEpisodes(season) {
+  episodeSelect.innerHTML = "";
+  episodes[season].forEach((ep, idx) => {
     const opt = document.createElement("option");
-    opt.value = season;
-    opt.text = season;
-    seasonSelect.appendChild(opt);
+    opt.value = idx;
+    opt.text = ep.title;
+    episodeSelect.appendChild(opt);
   });
-  
-  // Load episodes for selected season
-  function loadEpisodes(season) {
-    episodeSelect.innerHTML = "";
-    episodes[season].forEach((ep, idx) => {
-      const opt = document.createElement("option");
-      opt.value = idx;
-      opt.text = ep.title;
-      episodeSelect.appendChild(opt);
-    });
-    loadEpisode(season, 0);
+
+  // Default to latest
+  const latestIndex = season === "Season2" ? 9 : 0;
+  episodeSelect.value = latestIndex;
+  loadEpisode(season, latestIndex);
+}
+
+// Load a single episode
+function loadEpisode(season, index) {
+  const ep = episodes[season][index];
+  videoFrame.src = `https://player.vimeo.com/video/${ep.id}`;
+  titleEl.innerText = ep.title;
+  currentSeason = season;
+  currentEpisodeIndex = index;
+}
+
+seasonSelect.addEventListener("change", (e) => {
+  loadEpisodes(e.target.value);
+});
+
+episodeSelect.addEventListener("change", (e) => {
+  loadEpisode(currentSeason, parseInt(e.target.value));
+});
+
+nextButton.addEventListener("click", () => {
+  const nextIndex = currentEpisodeIndex + 1;
+  if (nextIndex < episodes[currentSeason].length) {
+    episodeSelect.value = nextIndex;
+    loadEpisode(currentSeason, nextIndex);
   }
-  
-  // Load a single episode by index
-  function loadEpisode(season, index) {
-    const ep = episodes[season][index];
-    videoFrame.src = `https://player.vimeo.com/video/${ep.id}`;
-    titleEl.innerText = ep.title;
-    currentSeason = season;
-    currentEpisodeIndex = index;
-  }
-  
-  seasonSelect.addEventListener("change", (e) => {
-    loadEpisodes(e.target.value);
-  });
-  
-  episodeSelect.addEventListener("change", (e) => {
-    loadEpisode(currentSeason, parseInt(e.target.value));
-  });
-  
-  nextButton.addEventListener("click", () => {
-    const nextIndex = currentEpisodeIndex + 1;
-    if (nextIndex < episodes[currentSeason].length) {
-      episodeSelect.value = nextIndex;
-      loadEpisode(currentSeason, nextIndex);
-    }
-  });
-  
-  randomButton.addEventListener("click", () => {
-    const allSeasons = Object.keys(episodes);
-    const randomSeason = allSeasons[Math.floor(Math.random() * allSeasons.length)];
-    const randomIndex = Math.floor(Math.random() * episodes[randomSeason].length);
-  
-    seasonSelect.value = randomSeason;
-    loadEpisodes(randomSeason);
-  
-    setTimeout(() => {
-      episodeSelect.value = randomIndex;
-      loadEpisode(randomSeason, randomIndex);
-    }, 50);
-  });
-  
-  // Init
-  loadEpisodes(currentSeason);
+});
+
+randomButton.addEventListener("click", () => {
+  const allEpisodes = Object.entries(episodes).flatMap(([season, eps]) =>
+    eps.map((ep, idx) => ({ ...ep, season, index: idx }))
+  );
+  const random = allEpisodes[Math.floor(Math.random() * allEpisodes.length)];
+  seasonSelect.value = random.season;
+  loadEpisodes(random.season);
+  episodeSelect.value = random.index;
+  loadEpisode(random.season, random.index);
+});
+
+// Init
+loadEpisodes(currentSeason);
